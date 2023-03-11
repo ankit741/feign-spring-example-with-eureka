@@ -23,7 +23,7 @@ public class GreetController {
 
     @GetMapping("/hello-worlds/{name}")
     public String getHelloWorld(@PathVariable String name) {
-        List<ServiceInstance> instances = discoveryClient.getInstances("eureka-client");
+        List<ServiceInstance> instances = discoveryClient.getInstances("GREET-SERVICE");
         String url=instances.get(0).getHost()+instances.get(0).getPort();
         instances.get(0).getUri().toString();
         List<String> collect = discoveryClient.getServices().stream().collect(Collectors.toList());
